@@ -1,0 +1,8 @@
+{
+  "sprite_anchors": [[35, 130], [425, 130]],
+  "anchored_landmark_indexes": [36, 45],
+  "perpendicular_offset": 0,
+  "parallel_offset": 0,
+  "angle_offset": 0,
+  "scale_factor": 1.5
+}
