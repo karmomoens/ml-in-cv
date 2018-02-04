@@ -10,6 +10,6 @@ docker run -it --rm --privileged \
     -v $HOME/.Xauthority:/root/.Xauthority:rw \
     -v /dev/video0:/dev/video0 \
     -v /dev/snd:/dev/snd \
-    student-trip-lyon bash
+    bapha/student-trip-lyon bash
 
 xhost -
