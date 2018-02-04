@@ -14,7 +14,7 @@ from src.imageoverlay.configured_overlay_decorator import ConfiguredOverlayDecor
 def predicting_example():
 
     # Instanciate a new landmark detector
-    detector_data_path = '../data/shape_predictor_68_face_landmarks.dat'
+    detector_data_path = '../../data/shape_predictor_68_face_landmarks.dat'
     landmark_detector = LandmarkDetector(predictor_file=detector_data_path)
 
     # Create a frame component with landmarks
