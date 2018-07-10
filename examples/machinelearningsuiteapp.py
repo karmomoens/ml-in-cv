@@ -3,7 +3,7 @@ from src.machinelearningsuite.machinelearningsuite import MachineLearningSuite
 
 if __name__ == "__main__":
     # suite = MachineLearningSuite("../videos/trump.mp4", "../data/shape_predictor_68_face_landmarks.dat")
-    suite = MachineLearningSuite("webcam", "./data/shape_predictor_68_face_landmarks.dat")
+    suite = MachineLearningSuite("webcam", "../../data/shape_predictor_68_face_landmarks.dat")
     suite.initialize()
 
     print(suite.configuration.to_dict())
