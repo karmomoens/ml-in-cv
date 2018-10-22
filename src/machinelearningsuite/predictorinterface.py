@@ -18,6 +18,7 @@ class PredictorInterface:
         self.normalizer = Normalizer(self.configuration)
         self.classifier = Classifier(self.configuration)
         self.filter = Filter(queue_size=10)
+        self.initialize()
 
     def initialize(self):
         self.configuration.initialize()
@@ -36,5 +37,4 @@ class PredictorInterface:
 
     def copy(self):
         result = PredictorInterface(self.configuration_file)
-        result.initialize()
         return result

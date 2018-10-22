@@ -49,11 +49,10 @@ class AttachedOverlayDecorator(FrameDecorator):
 
     def scale_sprite(self):
         if self.scale_factor is None:
-            self.sprite.scale = 1.0
-        else:
-            landarks_distance = self.calculate_anchored_landmark_distance()
-            anchor_distance = self.calculate_sprite_anchor_distance()
-            self.sprite.scale = self.scale_factor * landarks_distance / anchor_distance
+            self.scale_factor = 1.0
+        landarks_distance = self.calculate_anchored_landmark_distance()
+        anchor_distance = self.calculate_sprite_anchor_distance()
+        self.sprite.scale = self.scale_factor * landarks_distance / anchor_distance
 
     def move_sprite(self):
         landmark_center = self.calculate_anchored_landmark_center()
