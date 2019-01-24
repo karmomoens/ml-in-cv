@@ -13,6 +13,9 @@ docker run -it --rm --privileged \
     -v "$PWD/pyCharmConfig:/root/.PyCharmCE2017.1" \
     -v "$HOME/.Xauthority:/root/.Xauthority:rw" \
     -v /dev/video0:/dev/video0 \
+    -v /dev/video1:/dev/video1 \
+    -v /dev/video2:/dev/video2 \
+    -v /dev/video3:/dev/video3 \
     -v /dev/snd:/dev/snd \
     -v $PWD/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py \
     bapha/student-trip-lyon jupyter notebook
