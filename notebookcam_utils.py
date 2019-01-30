@@ -1,11 +1,10 @@
 import IPython
 import PIL.Image
 import cv2
-import sys
-from os.path import split
 from io import BytesIO
 from IPython.display import clear_output
 from time import sleep
+from traceback import print_exc
 
 
 def construct_stream():
@@ -19,31 +18,26 @@ def process_on_webcam(process_function=lambda _: None, final_message="Stream sto
         while True:
                 ret, frame = source.read()
                 if frame is None:
-                    clear_output(wait=True)
-                    print("No valid camera frames")
-                    sleep(0.1)
+                    wait_for_valid_frame()
                     continue
                 output = process_function(frame)
                 if output is not None:
                     frame = output
                 showarray(frame)
     except Exception as e:
-        print(e)
-        info = sys.exc_info()
-        exception_type = info[0]
-        trace_back = info[2]
-        filename = split(trace_back.tb_frame.f_code.co_filename)[1]
-        line_number = 1 + trace_back.tb_lineno
-        print(exception_type)
-        print(filename)
-        print(line_number)
-        print("")
+        print_exc()
     except KeyboardInterrupt:
         pass
     finally:
         source.release()
         print(final_message)
         finalize_function()
+        
+        
+def wait_for_valid_frame():
+    clear_output(wait=True)
+    print("No valid camera frames")
+    sleep(0.1)
 
 
 def showarray(array, displayables=[], fmt='jpeg', is_rgb=False):
